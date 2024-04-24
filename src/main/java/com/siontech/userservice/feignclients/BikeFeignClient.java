@@ -1,6 +1,6 @@
 package com.siontech.userservice.feignclients;
 
-import com.siontech.userservice.model.Car;
+import com.siontech.userservice.model.Bike;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(name = "car-service", url = "http://localhost:8002/car")
-//@RequestMapping("/car")
-public interface CarFeignClient {
-    @PostMapping()
-    Car save(@RequestBody Car car);
+@FeignClient(name = "bike-service", url = "http://localhost:8003/bike")
+public interface BikeFeignClient {
+
+    @PostMapping
+    Bike save(@RequestBody Bike bike);
 
     @GetMapping("/byuser/{userId}")
-    List<Car> getCars(@PathVariable("userId") int userId);
-
+    List<Bike> getBikes(@PathVariable("userId") int userId);
 }

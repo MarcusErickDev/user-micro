@@ -11,4 +11,9 @@ public class Bike {
     private String brand;
     private String model;
     private int userId;
+
+    public Bike setUserId(int userId) {
+        this.userId = userId;
+        return this;
+    }
 }
